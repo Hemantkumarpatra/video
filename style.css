@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Caveat', serif;
+  overflow: hidden;
+}
+
+.Container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Picture, .Picture-video {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  height: 100vw;
+  width: 200px;
+  border: 5px solid #fff;
+  border-radius: 3px;
+  background: #d6cece;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+.Picture-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #fff;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 600px;
+  height: 580px;
+}
+
+.Picture-img {
+  display: block;
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  pointer-events: none;
+}
+.letter {
+  left: 80%;
+  font-size: 30px;
+  align-items: center;
+  
+
+}
+.Picture-note, .Picture-note-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 70px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.Network, .Network-video {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.Network img, .Network-video img {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+  vertical-align: left;
+}
+
+/* Play Button Styles */
+#playButton {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #65a855;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 300px ;
+
+
+  transition: background-color 0.3s;
+}
+
+#playButton:hover {
+  background-color: #e1e6e1;
+}
+
+/* Fullscreen Image Transition */
+.Picture.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+}
+
+/* Animation for pictures when slideshow starts */
+@keyframes move-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(calc(-50% + 20px), calc(-50% + 20px)) rotate(15deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.animate-move {
+  animation: move-animation 1s ease-in-out;
+}
+
+/* Set default photo size */
+.Picture {
+  transition: all 2s ease;
+  width: 230px; /* Increased size */
+  height: 300px; /* Increased size */
+}
